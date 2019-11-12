@@ -1,9 +1,20 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const request = require('request');
 
-/* GET users listing. */
+const apiAddress = process.env.API_ADDRESS || "http://localhost:3001";
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Users', data: '-' });
+
+  request(apiAddress + '/api/users', function(err, response, body) {
+    if (err) {
+      res.render('index', { title: 'Users', data: 'no data' });
+      return;
+    }
+
+    const data = JSON.parse(body);
+    res.render('index', { title: 'Users', data: data });
+  });
 });
 
 module.exports = router;
