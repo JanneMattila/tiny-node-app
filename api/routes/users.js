@@ -3,12 +3,12 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   res.json([{
-    id: "1",
-    title: "title 1"
+    name: "John Doe",
+    phone: "+1-800-SHOE"
   },
   {
-    id: "2",
-    title: "title 2"
+    name: "Jane Doe",
+    phone: "+1234567890"
   }]);
 });
 

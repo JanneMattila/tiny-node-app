@@ -8,12 +8,12 @@ router.get('/', function(req, res, next) {
 
   request(apiAddress + '/api/users', function(err, response, body) {
     if (err) {
-      res.render('index', { title: 'Users', data: 'no data' });
+      res.render('users', { title: 'Users', data: [] });
       return;
     }
 
     const data = JSON.parse(body);
-    res.render('index', { title: 'Users', data: data });
+    res.render('users', { title: 'Users', data: data });
   });
 });
 

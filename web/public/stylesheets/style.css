@@ -1,8 +1,30 @@
 body {
   padding: 10px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+#users {
+  border-collapse: collapse;
+  border: 1px solid grey;
+}
+
+#users td {
+  padding: 10px;
+}
+
+#users tr:nth-child(even){background-color: lightgrey;}
+
+#users tr:hover {background-color: grey;}
+
+#users th {
+  padding: 10px;
+  text-align: left;
+  background-color: blue;
+  color: white;
+  width: 200px;
+}
+
