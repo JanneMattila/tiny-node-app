@@ -1,15 +1,19 @@
 var express = require('express');
 var router = express.Router();
+const request = require('request');
+
+const dbAddress = process.env.DB_ADDRESS || "http://localhost:3002";
 
 router.get('/', function(req, res, next) {
-  res.json([{
-    name: "John Doe",
-    phone: "+1-800-SHOE"
-  },
-  {
-    name: "Jane Doe",
-    phone: "+1234567890"
-  }]);
+  request(dbAddress + '/api/users', function(err, response, body) {
+    if (err) {
+      res.json([]);
+      return;
+    }
+
+    const data = JSON.parse(body);
+    res.json(data);
+  });
 });
 
 module.exports = router;
