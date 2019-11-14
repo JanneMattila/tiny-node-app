@@ -1,0 +1,51 @@
+{
+    "configurations": [
+        {
+            "name": "Attach to Server (AZDS)",
+            "type": "node",
+            "request": "attach",
+            "protocol": "inspector",
+            "preLaunchTask": "azds: preattach",
+            "cwd": "${workspaceFolder}",
+            "address": "127.0.0.1",
+            "port": 57228,
+            "localRoot": "${workspaceFolder}/.",
+            "remoteRoot": "/app",
+            "restart": true
+        },
+        {
+            "name": "Launch via NPM",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
+            ],
+            "port": 9229
+        },
+        {
+            "name": "Launch Server (AZDS)",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "preLaunchTask": "azds: prelaunch",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "azds",
+            "runtimeArgs": [
+                "exec",
+                "--on-exit-resume-up",
+                "--",
+                "node",
+                "--inspect=0.0.0.0:9229",
+                "--inspect-brk",
+                "--nolazy",
+                "./bin/www"
+            ],
+            "address": "127.0.0.1",
+            "port": 58902,
+            "localRoot": "${workspaceFolder}/.",
+            "remoteRoot": "/app"
+        }
+    ]
+}
