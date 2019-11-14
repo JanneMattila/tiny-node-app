@@ -38,4 +38,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+process.on("SIGINT", () => {
+  process.exit(130 /* 128 + SIGINT */);
+});
+
+process.on("SIGTERM", () => {
+  console.log("Terminating...");
+  server.close();
+});
+
 module.exports = app;
