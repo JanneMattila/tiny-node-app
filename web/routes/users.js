@@ -11,19 +11,25 @@ router.get('/', function(req, res, next) {
     url: address + '/api/users',
   };
 
+  console.log(`Requesting data from API ${options.url}`);
   if (req.headers["azds-route-as"]) {
+    const route = req.headers["azds-route-as"];
+    console.log(`Using route ${route}`);
     options.headers = {
-      'azds-route-as': req.headers["azds-route-as"]
+      'azds-route-as': route
     };
   }
 
   request(options, function(err, response, body) {
     if (err) {
+      console.log("Could not fetch data to UI.");
       res.render('users', { title: 'Users', data: [] });
       return;
     }
 
+    console.log("Data retrieved successfully to UI.");
     const data = JSON.parse(body);
+    console.log(`Rows received: ${data.length}`);
     res.render('users', { title: 'Users', data: data });
   });
 });

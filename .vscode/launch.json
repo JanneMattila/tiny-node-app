@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "web",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\web\\bin\\www"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "api",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\api\\bin\\www"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "db",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\db\\bin\\www"
+        }
+    ]
+}
