@@ -1,5 +1,7 @@
 # tiny-node-app
 
+## Demo setup
+
 Use dev spaces to debug your app in your AKS cluster.
 
 From this call hierarchy in your dev space (e.g. `demospace`):
@@ -19,3 +21,9 @@ graph LR;
     api-->db;
     api-clone-->db;
 ```
+
+Above `api-clone` is now something that you can easily debug locally. 
+
+## Links
+
+[Azure Dev Spaces documentation](https://docs.microsoft.com/en-us/azure/dev-spaces/)
