@@ -2,10 +2,22 @@ var express = require('express');
 var router = express.Router();
 const request = require('request');
 
-const dbAddress = process.env.DB_ADDRESS || "http://localhost:3002";
+const hostname = process.env.DB_SERVICE_HOST || "localhost";
+const port = process.env.DB_SERVICE_PORT || "3002";
+const address = `http://${hostname}:${port}`;
 
 router.get('/', function(req, res, next) {
-  request(dbAddress + '/api/users', function(err, response, body) {
+  const options = {
+    url: address + '/api/users',
+  };
+
+  if (req.headers["azds-route-as"]) {
+    options.headers = {
+      'azds-route-as': req.headers["azds-route-as"]
+    };
+  }
+  
+  request(options, function(err, response, body) {
     if (!err) {
       res.json([]);
       return;

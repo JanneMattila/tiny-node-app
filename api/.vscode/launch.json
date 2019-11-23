@@ -14,15 +14,14 @@
             "restart": true
         },
         {
-            "name": "Launch via NPM",
             "type": "node",
             "request": "launch",
-            "runtimeExecutable": "npm",
-            "runtimeArgs": [
-                "run-script",
-                "debug"
+            "name": "Launch Program",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
             ],
-            "port": 9229
+            "program": "${workspaceFolder}\\bin\\www"
         },
         {
             "name": "Launch Server (AZDS)",
