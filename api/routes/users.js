@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 
     console.log("Data retrieved successfully.");
     const data = JSON.parse(body);
-    res.json([]]);
+    res.json([]);
   });
 });
 
