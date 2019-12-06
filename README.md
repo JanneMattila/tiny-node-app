@@ -8,7 +8,7 @@ From this call hierarchy in your dev space (e.g. `demospace`):
 
 ![api-clone](docs/web-api-db.svg)
 
-To this call hierarchy in your child dev space (e.g. `devspace/janne`):
+To this call hierarchy in your child dev space (e.g. `demospace/janne`):
 
 ![api-clone](docs/web-api-clone-db.svg)
 
