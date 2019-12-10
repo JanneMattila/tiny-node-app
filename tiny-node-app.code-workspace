@@ -4,5 +4,13 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"azuredevspaces.azds",
+			"ms-kubernetes-tools.vscode-aks-tools",
+			"ms-kubernetes-tools.vscode-kubernetes-tools"
+		],
+		"unwantedRecommendations": []
+	}
 }
